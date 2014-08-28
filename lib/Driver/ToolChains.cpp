@@ -137,7 +137,7 @@ static const char *GetArmArchForMCpu(StringRef Value) {
 StringRef Darwin::getDarwinArchName(const ArgList &Args) const {
   switch (getTriple().getArch()) {
   default:
-    return getArchName();
+    return getDefaultUniversalArchName();
 
   case llvm::Triple::thumb:
   case llvm::Triple::arm: {
