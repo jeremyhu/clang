@@ -6518,7 +6518,7 @@ void clang::setThreadBackgroundPriority() {
     return;
 
   // FIXME: Move to llvm/Support and make it cross-platform.
-#ifdef __APPLE__
+#if defined(__APPLE__) && defined(PRIO_DARWIN_THREAD) && defined(PRIO_DARWIN_BG)
   setpriority(PRIO_DARWIN_THREAD, 0, PRIO_DARWIN_BG);
 #endif
 }
