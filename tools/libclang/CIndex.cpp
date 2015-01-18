@@ -7203,7 +7203,7 @@ void clang::setThreadBackgroundPriority() {
   if (getenv("LIBCLANG_BGPRIO_DISABLE"))
     return;
 
-#ifdef USE_DARWIN_THREADS
+#if defined(USE_DARWIN_THREADS) && defined(PRIO_DARWIN_THREAD) && defined(PRIO_DARWIN_BG)
   setpriority(PRIO_DARWIN_THREAD, 0, PRIO_DARWIN_BG);
 #endif
 }
