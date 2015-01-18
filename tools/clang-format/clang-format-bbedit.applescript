@@ -15,7 +15,7 @@ tell application "BBEdit"
 end tell
 
 set filePath to urlToPOSIXPath(fileURL)
-set newContents to do shell script "/path/to/clang-format -offset=" & selectionOffset & " -length=" & selectionLength & " " & quoted form of filePath
+set newContents to do shell script "@CLANG_FORMAT_PATH@ -offset=" & selectionOffset & " -length=" & selectionLength & " " & quoted form of filePath
 
 tell application "BBEdit"
 	-- "set contents of text document 1 to newContents" scrolls to the bottom while
