@@ -18,7 +18,7 @@ import sublime_plugin
 import subprocess
 
 # Change this to the full path if clang-format is not on the path.
-binary = 'clang-format'
+binary = '@CLANG_FORMAT_PATH@'
 
 # Change this to format according to other formatting styles. See the output of
 # 'clang-format --help' for a list of supported styles. The default looks for
