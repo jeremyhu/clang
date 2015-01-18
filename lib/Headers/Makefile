@@ -16,6 +16,7 @@ include $(CLANG_LEVEL)/Makefile
 
 CLANG_VERSION := $(word 3,$(shell grep "CLANG_VERSION " \
 	$(PROJ_OBJ_DIR)/$(CLANG_LEVEL)/include/clang/Basic/Version.inc))
+LLVM_VERSION := $(LLVM_VERSION_MAJOR).$(LLVM_VERSION_MINOR)
 
 HeaderDir := $(PROJ_OBJ_ROOT)/$(BuildMode)/lib/clang/$(CLANG_VERSION)/include
 
@@ -40,7 +41,7 @@ $(HeaderDir)/module.map: $(PROJ_SRC_DIR)/module.map $(HeaderDir)/.dir
 # Hook into the standard Makefile rules.
 all-local:: $(OBJHEADERS) $(HeaderDir)/module.map
 
-PROJ_headers := $(DESTDIR)$(PROJ_prefix)/lib/clang/$(CLANG_VERSION)/include
+PROJ_headers := $(DESTDIR)$(PROJ_prefix)/lib/clang/$(LLVM_VERSION)/include
 
 INSTHEADERS := $(addprefix $(PROJ_headers)/, $(HEADERS))
 INSTHEADERS += $(PROJ_headers)/arm_neon.h
