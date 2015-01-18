@@ -32,7 +32,7 @@ import sys
 
 
 # Change this to the full path if clang-format is not on the path.
-binary = 'clang-format'
+binary = '@CLANG_FORMAT_PATH@'
 
 
 def main():
