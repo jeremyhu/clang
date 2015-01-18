@@ -13,7 +13,7 @@
 
 ;; *Location of the clang-format binary. If it is on your PATH, a full path name
 ;; need not be specified.
-(defvar clang-format-binary "clang-format")
+(defvar clang-format-binary "@CLANG_FORMAT_PATH@")
 
 (defun clang-format-region ()
   "Use clang-format to format the currently active region."
