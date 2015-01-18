@@ -244,6 +244,7 @@ $(PROJ_resources_lib)/$1/libclang_rt.%.dylib: \
 		$(ResourceLibDir)/$1/libclang_rt.%.dylib | $(PROJ_resources_lib)/$1
 	$(Echo) Installing compiler runtime library: $1/$$*
 	$(Verb) $(DataInstall) $$< $(PROJ_resources_lib)/$1
+	$(Verb) install_name_tool $$@ -id $$(patsubst $(DESTDIR)%,%,$$@)
 
 # Rule to install runtime libraries.
 RuntimeLibraryInstall.$1: \
