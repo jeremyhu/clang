@@ -36,8 +36,7 @@
   :group 'tools)
 
 (defcustom clang-format-executable
-  (or (executable-find "clang-format")
-      "clang-format")
+  "@CLANG_FORMAT_PATH@"
   "Location of the clang-format executable.
 
 A string containing the name or the full path of the executable."
