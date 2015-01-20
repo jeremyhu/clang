@@ -271,8 +271,10 @@ public:
   bool IsEncodeExtendedBlockSignatureDefault() const override { return true; }
 
   bool IsObjCNonFragileABIDefault() const override {
-    // Non-fragile ABI is default for everything but i386.
-    return getTriple().getArch() != llvm::Triple::x86;
+    // Non-fragile ABI is default for legacy architectures
+    return getTriple().getArch() != llvm::Triple::x86 &&
+           getTriple().getArch() != llvm::Triple::ppc &&
+           getTriple().getArch() != llvm::Triple::ppc64;
   }
 
   bool UseObjCMixedDispatch() const override { return true; }
