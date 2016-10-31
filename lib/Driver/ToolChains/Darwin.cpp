@@ -1958,7 +1958,7 @@ void DarwinClang::AddClangCXXStdlibIncludeArgs(
                                                 "powerpc-apple-darwin10",
                                                 arch == llvm::Triple::ppc64 ? "ppc64" : "");
       IsBaseFound |= AddGnuCPlusPlusIncludePaths(DriverArgs, CC1Args, UsrIncludeCxx,
-                                                "4.0.0", "powerpc-apple-darwin10",
+                                                "4.0.0", "powerpc-apple-darwin8",
                                                  arch == llvm::Triple::ppc64 ? "ppc64" : "");
       break;
 
@@ -1970,7 +1970,7 @@ void DarwinClang::AddClangCXXStdlibIncludeArgs(
                                                 arch == llvm::Triple::x86_64 ? "x86_64" : "");
       IsBaseFound |= AddGnuCPlusPlusIncludePaths(DriverArgs, CC1Args, UsrIncludeCxx,
                                                 "4.0.0", "i686-apple-darwin8",
-                                                 "");
+                                                 arch == llvm::Triple::x86_64 ? "x86_64" : "");
       break;
 
     case llvm::Triple::arm:
