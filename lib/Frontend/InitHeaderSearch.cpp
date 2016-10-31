@@ -365,7 +365,7 @@ AddDefaultCPlusPlusIncludePaths(const llvm::Triple &triple, const HeaderSearchOp
                                   "powerpc-apple-darwin10", "", "ppc64",
                                   triple);
       AddGnuCPlusPlusIncludePaths("/usr/include/c++/4.0.0",
-                                  "powerpc-apple-darwin10", "", "ppc64",
+                                  "powerpc-apple-darwin8", "", "ppc64",
                                   triple);
       break;
 
@@ -374,7 +374,7 @@ AddDefaultCPlusPlusIncludePaths(const llvm::Triple &triple, const HeaderSearchOp
       AddGnuCPlusPlusIncludePaths("/usr/include/c++/4.2.1",
                                   "i686-apple-darwin10", "", "x86_64", triple);
       AddGnuCPlusPlusIncludePaths("/usr/include/c++/4.0.0",
-                                  "i686-apple-darwin8", "", "", triple);
+                                  "i686-apple-darwin8", "", "x86_64", triple);
       break;
 
     case llvm::Triple::arm:
