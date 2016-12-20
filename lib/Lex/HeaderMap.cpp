@@ -25,6 +25,20 @@
 #include <memory>
 using namespace clang;
 
+#ifdef __APPLE__
+#include <Availability.h>
+#if __MAC_OS_X_VERSION_MIN_REQUIRED < 1070
+static size_t strnlen(const char *s, size_t maxlen) {
+  size_t l = 0;
+  while (l < maxlen && *s) {
+    l++;
+    s++;
+  }
+  return l;
+}
+#endif
+#endif
+
 /// HashHMapKey - This is the 'well known' hash function required by the file
 /// format, used to look up keys in the hash table.  The hash table uses simple
 /// linear probing based on this function.
