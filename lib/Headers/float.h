@@ -31,7 +31,12 @@
  * Also fall back on Darwin to allow additional definitions and
  * implementation-defined values.
  */
-#if (defined(__APPLE__) || (defined(__MINGW32__) || defined(_MSC_VER))) && \
+
+#if defined(__APPLE__) && __has_include(<Availability.h>)
+#include <Availability.h>
+#endif
+
+#if ((defined(__APPLE__) && __has_include(<Availability.h>) && (!defined(__MAC_OS_X_VERSION_MAX_ALLOWED) || __MAC_OS_X_VERSION_MAX_ALLOWED >= 101300)) || (defined(__MINGW32__) || defined(_MSC_VER))) && \
     __STDC_HOSTED__ && __has_include_next(<float.h>)
 
 /* Prior to Apple's 10.7 SDK, float.h SDK header used to apply an extra level
